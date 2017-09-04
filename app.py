@@ -25,8 +25,14 @@ def get_info():
 	)
 
 @app.route('/encode/<domain>')
-def encode_domain():
-	return domain.encode('idna')
+def encode_domain(domain):
+	return domain.encode('idna') + '\n'
+
+
+@app.route('/decode/<domain>')
+def decode_domain(domain):
+	return domain.decode('idna') + '\n'
+
 
 if __name__ == '__main__':
 	app.run()
